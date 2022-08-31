@@ -81,28 +81,28 @@ jobs:
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 5.0.x
+        dotnet-version: 6.0.x
     
     - name: Restore dependencies
       run: dotnet restore
 
     - name: Build for Windows 10-x64
-      run: dotnet msbuild /t:Package /p:WindowsOnly=false /p:RuntimeIdentifier=win10-x64 /p:Configuration=Release /p:TargetFramework=netcoreapp5.0
+      run: dotnet msbuild /t:Package /p:WindowsOnly=false /p:RuntimeIdentifier=win10-x64 /p:Configuration=Release /p:TargetFramework=net6.0
     - name: Build for Windows 10-x64 (Installer)
       run: dotnet msbuild /t:Package /p:WindowsOnly=false /p:RuntimeIdentifier=win10-x64 /p:Configuration=Release /p:TargetFramework=net48
     - name: Build for Windows 10-arm64
-      run: dotnet msbuild /t:Restore,Package /p:WindowsOnly=false /p:RuntimeIdentifier=win10-arm /p:Configuration=Release /p:TargetFramework=netcoreapp5.0
+      run: dotnet msbuild /t:Restore,Package /p:WindowsOnly=false /p:RuntimeIdentifier=win10-arm /p:Configuration=Release /p:TargetFramework=net6.0
     - name: Build for Windows 10-x86
-      run: dotnet msbuild /t:Restore,Package /p:WindowsOnly=false /p:RuntimeIdentifier=win10-x86 /p:Configuration=Release /p:TargetFramework=netcoreapp5.0
+      run: dotnet msbuild /t:Restore,Package /p:WindowsOnly=false /p:RuntimeIdentifier=win10-x86 /p:Configuration=Release /p:TargetFramework=net6.0
     
     - name: Test
-      run: dotnet test /p:TargetFramework=netcoreapp5.0 /p:RuntimeIdentifier=ubuntu-x64 /p:Configuration=Debug
+      run: dotnet test /p:TargetFramework=net6.0 /p:RuntimeIdentifier=ubuntu-x64 /p:Configuration=Debug
     
     - uses: actions/upload-artifact@v2
       with:
         name: XBuild
         path: |
-          artifacts/build/netcoreapp5.0
+          artifacts/build/net6.0
           artifacts/build/net48
     
     - name: Upload Binaries to the Release
