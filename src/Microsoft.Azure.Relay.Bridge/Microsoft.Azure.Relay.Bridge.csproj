@@ -51,6 +51,12 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <Target Name="GetTargetPath" Returns="@(WixGetTargetPath)" Condition="'$(TargetFramework)'=='netcoreapp5.0'">
+    <ItemGroup>
+      <WixGetTargetPath Include="$(MSBuildProjectDirectory)\$(OutputPath)\net48\$(AssemblyName).dll" />
+    </ItemGroup>
+  </Target>
+
   <Target Name="GetTargetPath" Returns="@(WixGetTargetPath)">
     <ItemGroup>
       <WixGetTargetPath Include="$(MSBuildProjectDirectory)\$(OutputPath)\net6.0\$(AssemblyName).dll" />
