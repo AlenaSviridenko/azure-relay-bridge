@@ -8,6 +8,7 @@
     <MicrosoftDiagnosticsTracingEventSourcePackageVersion>1.1.28</MicrosoftDiagnosticsTracingEventSourcePackageVersion>
     <MicrosoftDiagnosticsTracingTraceEventPackageVersion>2.0.66</MicrosoftDiagnosticsTracingTraceEventPackageVersion>
     <MicrosoftNETCoreAppPackageVersion>6.0.0</MicrosoftNETCoreAppPackageVersion>
+    <MicrosoftNETCoreAppPackageVersion Condition="'$(TargetFramework)' == 'netcoreapp5.0'">5.0.0</MicrosoftNETCoreAppPackageVersion>
     <MicrosoftNetHttpHeadersPackageVersion>2.2.8</MicrosoftNetHttpHeadersPackageVersion>
     <MicrosoftNETTestSdkPackageVersion>17.3.0</MicrosoftNETTestSdkPackageVersion>
     <SystemNetNetworkInformationPackageVersion>4.3.0</SystemNetNetworkInformationPackageVersion>
